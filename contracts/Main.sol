@@ -17,7 +17,7 @@ contract Main {
         string passCode;
         uint id;
         address renterAddress;
-        uint[][] Rents;
+        string[][] Rents;
         
     }
     
@@ -33,20 +33,22 @@ contract Main {
     mapping(address => RentOutInfo[]) personalRents;
     
     function createRentable(string memory location, uint numGuests, string memory startDate, string memory endDate, uint price, string memory passCode, address _address) public {
-        uint[][] memory emptyArr;
+        string[][] memory emptyArr;
         RentInfo memory rent = RentInfo(location, numGuests, startDate, endDate, price, false, passCode, Rents.length, _address, emptyArr);
         Rents.push(rent);
         personalRentables[_address].push(rent);
     }
+
     
-    function rent(string memory startDate, string memory endDate, uint id, address _address) public {
+    function rent(string memory startDate, string memory endDate, uint id, address _address) public payable {
         string memory location = Rents[id].location;
         string memory passCode = Rents[id].passCode;
         RentOutInfo memory filledRentOutInfo = RentOutInfo(startDate, endDate, location, passCode);
         personalRents[_address].push(filledRentOutInfo);
         
-        //Adjustments
-        uint[] memory arr; 
+        string[] memory arr = new string[](2);
+        arr[0] = startDate;
+        arr[1] = endDate;
         Rents[id].Rents.push(arr);
     }
     
@@ -78,5 +80,4 @@ contract Main {
     function getPersonalRentablesCount(address _address) public view returns (uint) {
         return (personalRentables[_address].length);
     }
-    
 }

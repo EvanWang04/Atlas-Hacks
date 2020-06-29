@@ -5,7 +5,8 @@ import "react-datepicker/dist/react-datepicker.css"
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import 'react-google-places-autocomplete/dist/index.min.css';
 import Button from '@material-ui/core/Button';
-
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 class CreateRent extends Component {
     constructor(props) {
@@ -32,8 +33,8 @@ class CreateRent extends Component {
         })
     }
 
-    handleSubmit = () => {
-        this.props.createRentable(this.state.location, this.state.numGuests, this.state.startDate.toString(), this.state.endDate.toString(), this.state.price, this.state.passCode)
+    handleSubmit = async () => {
+        await this.props.createRentable(this.state.location, this.state.numGuests, this.state.startDate.toString(), this.state.endDate.toString(), this.state.price, this.state.passCode)
         this.setState({
             location: "",
             numGuests: "",
@@ -57,7 +58,7 @@ class CreateRent extends Component {
     };
 
     handleLocation = data => {
-        console.log(data.description)
+        this.setState({location: data.description})
     }
 
     render() { 
@@ -71,15 +72,19 @@ class CreateRent extends Component {
 
         return (
             <div>
+                <div className="wide">
                     <GooglePlacesAutocomplete
                         onSelect={this.handleLocation}
+                        
                     />
+                </div>
                 <div className="spacer">
-                    <input
+                    <TextField 
+                        id="standard-basic"
                         name="numGuests"
                         value={this.state.numGuests}
                         onChange={this.handleChange}
-                        placeholder="Number of Guests"
+                        label="Number of Guests"
                     />
                 </div>
                 <div className="spacer">
@@ -87,6 +92,9 @@ class CreateRent extends Component {
                         selected={this.state.startDate}
                         onChange={this.handleStartDateChange}
                         placeholderText="Start Date"
+                        minDate={new Date()}
+                        showDisabledMonthNavigation
+                        label="Start Date"
                     />
                 </div>
                 <div className="spacer">
@@ -94,18 +102,24 @@ class CreateRent extends Component {
                         selected={this.state.endDate}
                         onChange={this.handleEndDateChange}
                         placeholderText="End Date"
+                        minDate={new Date()}
+                        showDisabledMonthNavigation
                     />
                 </div>
                 <div className="spacer">
-                    <input
+                <TextField 
+                        id="standard-basic"
+                    
                         name="price"
                         value={this.state.price}
                         onChange={this.handleChange}
-                        placeholder="Price per day of rent"
-                    />
+                        placeholder="Price per day of rent in $"
+                    
+                />
                 </div>
                 <div className="spacer">
-                    <input
+                <TextField 
+                        id="standard-basic"
                         name="passCode"
                         value={this.state.passCode}
                         onChange={this.handleChange}
@@ -116,6 +130,7 @@ class CreateRent extends Component {
                     <Button variant="contained" color="primary"onClick={this.handleSubmit}>Submit</Button>
                 </div>
             </div>
+            
         );
 
         

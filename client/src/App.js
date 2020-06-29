@@ -101,8 +101,9 @@ class App extends Component {
     this.state.contract.methods.createRentable(location, numGuests, startDate, endDate, price, passCode, this.state.account).send({from: this.state.account})
   }
 
-  createRent = (startDate, endDate, id) => {
-    this.state.contract.methods.rent(startDate, endDate, id, this.state.account).send({from: this.state.account})
+  createRent = (startDate, endDate, id, address) => {
+    this.state.contract.methods.rent(startDate, endDate, id, this.state.account).send({from: this.state.account, value: 2930000000000000000})
+    //await this.state.web3.eth.sendEther({ from: this.state.account, to: address, value: 2930000000000000000 })
   }
 
   takeDownRentable = (id) => {
@@ -125,10 +126,10 @@ class App extends Component {
         <div className="app-content-div">
           <Switch>
               <Route path="/dashboard">
-                <Dashboard/>
+                <Dashboard personalRents={this.state.personalRents} personalRentables={this.state.personalRentables}/>
               </Route>
             <Route path="/rent">
-              <Rent rentables={this.state.rentables}/>
+              <Rent rentables={this.state.rentables} createRent={this.createRent} web3={this.state.web3}/>
             </Route>
             <Route path="/history">
               <History/>

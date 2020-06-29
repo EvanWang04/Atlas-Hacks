@@ -1,3 +1,7 @@
+body{
+    text-align: center
+}
+
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -19,11 +23,22 @@
 }
 
 .spacer{
-    padding-top: 50px;
-    padding-left: 710px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
 }
 
 .spacer1{
-    padding-top: 50px;
-    padding-left: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.wide{
+    /* Align Horizontally and Vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

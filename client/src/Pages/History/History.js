@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Past from "./Past"
 //import Example from "./Chart";
 
 class History extends Component {
@@ -12,7 +13,7 @@ class History extends Component {
     render(){
         return(
             <div>
-                History
+                <Past />
             </div>
         )
     }

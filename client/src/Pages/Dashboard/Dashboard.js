@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Slide from "./AvailableRentals";
-import Slide2 from "./Slideshow";
+import Slide from "./CurrentRents";
+import Slide2 from "./Leases";
 import "./Slideshow.css"
 
 class Dashboard extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             
         }
@@ -14,8 +14,8 @@ class Dashboard extends Component {
     render(){
         return(
             <div>
-               <Slide />
-               <Slide2 />
+               <Slide personalRents={this.props.personalRents}/>
+               <Slide2 personalRentables={this.props.personalRentables}/>
             </div>
         )
     }

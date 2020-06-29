@@ -2,3 +2,8 @@
     float: right;
     align-items: flex-end;
 }
+
+.inline{
+    display: inline-block;
+    
+}
