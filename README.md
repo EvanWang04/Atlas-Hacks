@@ -1,6 +1,21 @@
-# Atlas-Hacks
-Code for Atlas-Hacks  
-To run make sure you have Ganache open and running  
-Truffle compile and truffle migrate in console  
-CD into client and run npm install  
-Npm start in client and you should be good to go  
+# Horizon Realty
+## Inspiration
+Horizon Realty was inspired by the lack of experience people were getting by Airbnb and they are ruining people's privacy and vacation. They also tax up to $200 of fees on top of the original monthly bill paid off the rental property and offers no room for dispute over the pricing of the rent itself. That's where we decided to create an app that requires no cost whatsoever and when renting out a property it gives you the direct cost of the rent in ethereum currency. This where Horizon Realty steps in and makes things easier for the user and the landlord. We decentralize this service with trustless smart contracts and eliminating the middleman and the fees that come along with them.
+
+## What it does
+Horizon Realty allows users to create rent and rent out places like Airbnb, but quite simply, in the most efficient way possible. Horizon Realty is a decentralized application, that utilizes trustless smart contracts in order to act as the intermediary for Renting. Because of this, we can provide costs for Rents that have virtually a $0 middleman fee. This is revolutionary in the sense that we can sort out disputes and move legal liability away from the Gig Workers, into trustless contracts.
+
+## How we built it
+We built this decentralized application with Web3, the Ethereum Ecosystem, ReactJS, and Material UI. We used the Web3, to store our user data such that it’s decentralized and it will prevent any external sources from accessing the user’s private information. We also utilized the Ethereum Ecosystem to securely store the smart contracts that we wrote to monitor each user. The Ethereum Ecosystem was necessary for our application to fully flower as it was needed in our proof of thought for our project. We utilized ReactJS to develop our frontend for this application, by creating multiple pages for the user and also develop multiple components. We fetched data that will allow the users to easily type and click the auto-filled address, as well as the calendar when selecting their start and end date for their renting period. We also used the Material UI Library in React to style our components and properly make our application UI and UX friendly.
+
+## Challenges we ran into
+One of the most challenging things that we had to do was bug fix the incredibly complicated Smart Contract backend. Node and Solidity EVM errors were extremely vague and thus difficult to bugfix. There were so many components and processes going on that we had to really focus on to make sure it all worked together. Many things with the front-end were not showing up, forcing us to reinstall Node Modules, as well as React itself.
+
+## Accomplishments that we're proud of
+We are really proud of developing a fully functional Decentralized Application by only being introduced to the Ethereum Ecosystem and the Web3 Protocol shortly. Our desire for the entire application was to style it off come on renting platforms but implement it with the ever-growing popularity of blockchain. This was a lot of work for a team of 2 to finish in less than 36 hours. Evan and I are very proud of our final solution and we would’ve never seen this application to fully function.
+
+## What we learned
+We had to integrate the Blockchain network with Web3 which required several hours of debugging. Solidity was hard to learn for Evan for the first time, as well as integrating Material-UI for the front-end of the app. Vlad utilized React and Material-UI for the very first time. Both of the members of our group had learned and applied new different frameworks and languages for this project while doing our absolute best. We tried our best and accomplished many things along the way when using new languages and created a fully-functional app. We stuck together throughout the entire 36 hours and never gave up the second we started.
+
+## What's next for Horizon Realty
+The application that we built with blockchain technology performs some functionality, but since we couldn’t launch and deploy it to the main network (which would cost some of our own money), it would be the next main thing for Horizon Realty. We would’ve also loved to add a history feature for our users, so they can review their previous transactions and possible refund them. Allowing some possible way for our users to interact with us so we can provide them with a refund just in case they change their minds.
